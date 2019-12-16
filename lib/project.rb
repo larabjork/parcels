@@ -1,5 +1,6 @@
 class Parcel
-  attr_reader :id, :name, :width, :height, :length, :weight, :distance
+  attr_reader :id
+  attr_accessor :name, :width, :height, :length, :weight, :distance
   @@parcels = {}
   @@total_rows = 0
 
@@ -30,10 +31,28 @@ class Parcel
     @@total_rows = 0
   end
 
-  def update(id)
-    @name=id
+  def update_name(name)
+    @name=name
   end
 
+  def update_width(width)
+    @width=width
+  end
+
+  def update_height(height)
+    @height=height
+  end
+
+  def update_length(length)
+    @length=length
+  end
+def update_weight(weight)
+  @weight = weight.to_i
+end
+
+def update_distance(distance)
+  @distance = distance.to_i
+end
   def self.find(id)
     @@parcels[id]
   end

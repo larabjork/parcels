@@ -1,12 +1,11 @@
 <h4>Parcel Desccription: <%= @parcel.name %></h4>
-<li><%= @parcel.width %></li>
-<li><%= @parcel.height %></li>
-<li><%= @parcel.length %></li>
-<li><%= @parcel.weight %></li>
-<li><%= @parcel.distance %></li>
-<li><%= @parcel.cost %></li>
-
-var ship_fast = $("input:radio[name=flavor]:checked").val();
+<li>Width: <%= @parcel.width %></li>
+<li>Height: <%= @parcel.height %></li>
+<li>Length: <%= @parcel.length %></li>
+<li>Weight: <%= @parcel.weight %></li>
+<li>Distance: <%= @parcel.distance %></li>
+<li>Regular shipping cost: <%= @parcel.regular_cost %></li>
+<li>Express shipping cost: <%= @parcel.express_cost %></li>
 
 <p><a href="/parcels/<%= @parcel.id %>/edit">Edit parcel</a></p>
 <a href="/parcels">Return to parcels list</a>

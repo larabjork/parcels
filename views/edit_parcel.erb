@@ -1,0 +1,35 @@
+<h1>Update <%= @parcel.name() %></h1>
+
+<form action="/parcels/<%= @parcel.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="name">Rename parcel</label>
+  <input id="name" name="name" type="text">
+
+
+  <label for="width">Reenter width</label>
+  <input type="text" name="width">
+
+  <label for="height">Reenter height</label>
+  <input type="text" name="height">
+
+  <label for="length">Reenter length</label>
+  <input type="text" name="length">
+
+  <label for="weight">Reenter weight</label>
+  <input type="text" name="weight">
+
+  <label for="distance">Reenter distance</label>
+  <input type="text" name="distance">
+
+  <button type="submit">Update</button>
+</form>
+
+<p><a href="/parcels">Return to parcel list</a></p>
+
+
+<form action="/parcels/<%= @parcel.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete parcel</button>
+</form>

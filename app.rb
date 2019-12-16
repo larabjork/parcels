@@ -42,19 +42,34 @@ post('/parcels') do
   erb(:parcels)
 end
 
-get('/parcels/:id/edit') do
-  "This will take us to a page with a form for updating an parcel with an ID of #{params[:id]}."
-end
+
 
 patch('/parcels/:id') do
   @parcel = Parcel.find(params[:id].to_i())
-  @parcel.update(params[:name])
+  if params[:name] != ""
+    @parcel.update_name(params[:name])
+  end
+  if params[:width] != ""
+    @parcel.update_width(params[:width])
+  end
+  if params[:height] != ""
+    @parcel.update_height(params[:height])
+  end
+  if params[:length] != ""
+    @parcel.update_length(params[:length])
+  end
+  if params[:weight] != ""
+    @parcel.update_weight(params[:weight])
+  end
+  if params[:distance] != ""
+    @parcel.update_distance(params[:distance])
+  end
   @parcels = Parcel.all
   erb(:parcels)
 end
 
 delete('/parcels/:id') do
-  @parcel = parcel.find(params[:id].to_i())
+  @parcel = Parcel.find(params[:id].to_i())
   @parcel.delete()
   @parcels = Parcel.all
   erb(:parcels)
