@@ -30,8 +30,13 @@ get('/parcels/:id/edit') do
 end
 
 post('/parcels') do
-  name = params[:parcel_name]
-  parcel = binding.pryarcel.new(name, nil)
+  name = params[:name]
+  width = params[:width]
+  height =params[:height]
+  length = params[:length]
+  weight = params[:weight]
+  distance = params[:distance]
+  parcel = Parcel.new(name, nil, width, height, length, weight, distance)
   parcel.save()
   @parcels = Parcel.all()
   erb(:parcels)

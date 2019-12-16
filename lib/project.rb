@@ -1,18 +1,24 @@
 class Parcel
-  attr_reader :id, :name
+  attr_reader :id, :name, :width, :height, :length, :weight, :distance
   @@parcels = {}
   @@total_rows = 0
 
-  def initialize(name, id)
+  def initialize(name, id, width, height, length, weight, distance)
     @name = name
     @id = id || @@total_rows += 1
+    @width = width.to_i
+    @height = height.to_i
+    @length = length.to_i
+    @weight = weight.to_i
+    @distance = distance.to_i
   end
 
   def self.all
-    @@parcles.values()
+    @@parcels.values()
   end
+
   def save
-    @@parcels[self.id] = Parcel.new(self.name, self.id)
+    @@parcels[self.id] = Parcel.new(self.name, self.id, self.width, self.height, self.length, self.weight, self.distance)
   end
 
   def ==(parcel_to_compare)
@@ -24,15 +30,24 @@ class Parcel
     @@total_rows = 0
   end
 
-  def update(name)
-    @name=name
+  def update(id)
+    @name=id
   end
 
   def self.find(id)
-    @@albums[id]
+    @@parcels[id]
   end
 
   def delete
-    @@albums.delete(self.id)
+    @@parcels.delete(self.id)
   end
+
+  def vol
+    @height * @length * @width
+  end
+
+  def cost
+    (@weight * 0.75 ) + (@distance * 0.10)
+  end
+
 end
