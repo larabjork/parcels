@@ -72,4 +72,8 @@ end
   def express_cost()
     self.regular_cost * 2
   end
+
+  def surface_area
+    2*((@width*@length)+ (@height*@length) + (@width*@height))
+  end
 end

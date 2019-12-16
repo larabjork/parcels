@@ -36,10 +36,10 @@ describe('.clear') do
   end
 
 
-  describe('#update') do
+  describe('#update_name') do
     it("updates an parcel by id") do
       parcel = Parcel.new("Box1", nil, 10, 5, 3, 10, 100)
-      parcel.update("A Love Supreme")
+      parcel.update_name("A Love Supreme")
       expect(parcel.name).to(eq("A Love Supreme"))
     end
   end
@@ -83,6 +83,14 @@ describe('.clear') do
       parcel = Parcel.new("Box1", nil, 10, 5, 3, 10, 100)
       parcel.save()
       expect(parcel.express_cost).to(eq(35))
+    end
+  end
+
+  describe('#surface_area') do
+    it("should calculate area of wrapping paper") do
+      parcel = Parcel.new("Box1", nil, 10, 5, 3, 10, 100)
+      parcel.save()
+      expect(parcel.surface_area).to(eq(190))
     end
   end
 end
