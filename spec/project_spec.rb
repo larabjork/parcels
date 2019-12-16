@@ -70,11 +70,19 @@ describe('.clear') do
         expect(parcel.vol).to(eq(150))
       end
   end
-  describe('#cost') do
-    it("should calculate cost") do
+  describe('#regular_cost') do
+    it("should calculate regular cost") do
       parcel = Parcel.new("Box1", nil, 10, 5, 3, 10, 100)
       parcel.save()
-      expect(parcel.cost).to(eq(17.5))
+      expect(parcel.regular_cost).to(eq(17.5))
+    end
+  end
+
+  describe('#express_cost') do
+    it("should calculate express cost") do
+      parcel = Parcel.new("Box1", nil, 10, 5, 3, 10, 100)
+      parcel.save()
+      expect(parcel.express_cost).to(eq(35))
     end
   end
 end

@@ -46,8 +46,11 @@ class Parcel
     @height * @length * @width
   end
 
-  def cost
+  def regular_cost
     (@weight * 0.75 ) + (@distance * 0.10)
   end
 
+  def express_cost()
+    self.regular_cost * 2
+  end
 end
