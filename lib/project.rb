@@ -76,4 +76,8 @@ end
   def surface_area
     2*((@width*@length)+ (@height*@length) + (@width*@height))
   end
+
+  def gift_wrap
+    (0.05 * self.surface_area).round
+  end
 end

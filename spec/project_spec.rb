@@ -93,4 +93,14 @@ describe('.clear') do
       expect(parcel.surface_area).to(eq(190))
     end
   end
+
+  describe('#gift_wrap') do
+    it("should calculate cost of wrapping paper") do
+      parcel = Parcel.new("Box1", nil, 10, 5, 3, 10, 100)
+      parcel.save()
+      expect(parcel.gift_wrap).to(eq(9.5))
+    end
+  end
+
+
 end
